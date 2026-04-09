@@ -11,48 +11,13 @@ gsap.registerPlugin(ScrollTrigger);
 const PROJECTS = [
   {
     id: 1,
-    title: "Nebula Studios",
+    title: "YMY Consultancy",
     description:
-      "A fully immersive brand identity and website for a next-gen gaming studio.",
-    tags: ["Branding", "Web Design", "Motion"],
+      "Book verified, professional tour guides worldwide. Premium guided experiences in minutes.",
+    tags: ["Platform", "Tour Booking", "Premium"],
     image:
-      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80",
-  },
-  {
-    id: 2,
-    title: "Arcadia Finance",
-    description:
-      "Fintech platform redesign with intuitive dashboards and real-time data visualization.",
-    tags: ["UI/UX", "React", "D3.js"],
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-  },
-  {
-    id: 3,
-    title: "Echo Collective",
-    description:
-      "Music label website with interactive audio visualizations and artist profiles.",
-    tags: ["WebGL", "Audio API", "Next.js"],
-    image:
-      "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&q=80",
-  },
-  {
-    id: 4,
-    title: "Verdant Living",
-    description:
-      "Sustainable lifestyle e-commerce with 3D product exploration and AR try-on.",
-    tags: ["E-commerce", "Three.js", "AR"],
-    image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80",
-  },
-  {
-    id: 5,
-    title: "Pulse Health",
-    description:
-      "Health & wellness app with real-time biometric tracking and personalized insights.",
-    tags: ["Mobile", "Swift", "ML"],
-    image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
+      "/ymy-screenshot.png",
+    link: "https://www.ymycons.com/",
   },
 ];
 
@@ -118,10 +83,12 @@ const ProjectCard = memo(function ProjectCard({
           ))}
         </div>
         <a
-          href="#"
+          href={project.link || "#"}
+          target={project.link ? "_blank" : undefined}
+          rel={project.link ? "noopener noreferrer" : undefined}
           className="inline-flex items-center gap-1 text-sm font-semibold text-accent transition-colors hover:text-accent/80"
         >
-          View Project <ArrowUpRight size={14} />
+          View Platform <ArrowUpRight size={14} />
         </a>
       </div>
     </div>
@@ -141,18 +108,20 @@ export default function ProjectShowcase() {
       const totalWidth =
         trackRef.current!.scrollWidth - sectionRef.current!.offsetWidth;
 
-      gsap.to(trackRef.current, {
-        x: -totalWidth,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: () => `+=${totalWidth}`,
-          pin: true,
-          scrub: 1,
-          invalidateOnRefresh: true,
-        },
-      });
+      if (totalWidth > 0) {
+        gsap.to(trackRef.current, {
+          x: -totalWidth,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: () => `+=${totalWidth}`,
+            pin: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
+          },
+        });
+      }
     });
 
     return () => {

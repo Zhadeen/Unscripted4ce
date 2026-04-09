@@ -462,9 +462,9 @@
 
   .team-card-image {
     position: relative;
+    width: 100%;
     aspect-ratio: 3 / 4;
     overflow: hidden;
-    max-height: 450px;
   }
 
   .team-card-image img {

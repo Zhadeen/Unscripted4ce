@@ -4,38 +4,33 @@ import { useEffect, useRef, memo } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Mail } from "lucide-react";
+
+// Raw SVGs for brand icons removed from the lucide-react library
+const InstagramIcon = ({ size = 24 }: { size?: number }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+  </svg>
+);
+
+const LinkedinIcon = ({ size = 24 }: { size?: number }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+    <rect width="4" height="12" x="2" y="9"/>
+    <circle cx="4" cy="4" r="2"/>
+  </svg>
+);
 
 gsap.registerPlugin(ScrollTrigger);
 
 const TEAM = [
   {
-    name: "Alex Rivera",
-    role: "Creative Director",
-    bio: "10+ years shaping brand identities for Fortune 500 companies. Passionate about the intersection of design and technology.",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
-  },
-  {
-    name: "Sarah Chen",
-    role: "Lead Developer",
-    bio: "Full-stack architect specializing in performant web experiences. Open-source contributor and WebGL enthusiast.",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80",
-  },
-  {
-    name: "Marcus Webb",
-    role: "Motion Designer",
-    bio: "Award-winning motion designer bringing brands to life through animation. Former Pixar and Google creative team.",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&q=80",
-  },
-  {
-    name: "Emi Tanaka",
-    role: "UX Strategist",
-    bio: "Human-centered design advocate with expertise in research-driven product strategy. Speaker at Config and SXSW.",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&q=80",
+    name: "The Founder",
+    role: "Creative Director & UI/UX Strategist",
+    bio: "Serving as Creative Director, Lead Developer, and UI/UX Strategist for the entire YMY platform.",
+    image: "/creator.jpg",
   },
 ];
 
@@ -66,14 +61,26 @@ const TeamCard = memo(function TeamCard({
         <p className="mb-2 text-sm font-medium text-accent">{member.role}</p>
         <p className="text-sm leading-relaxed text-text/60">{member.bio}</p>
         <div className="team-card-socials">
-          <a href="#" className="team-social-icon" aria-label="GitHub">
-            <Github size={16} />
+          <a 
+            href="https://www.instagram.com/man_like_hayat?igsh=bzM2NmEydWsxcGZm" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="team-social-icon" 
+            aria-label="Instagram"
+          >
+            <InstagramIcon size={16} />
           </a>
-          <a href="#" className="team-social-icon" aria-label="LinkedIn">
-            <Linkedin size={16} />
+          <a 
+            href="https://www.linkedin.com/in/man1ikehayat?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="team-social-icon" 
+            aria-label="LinkedIn"
+          >
+            <LinkedinIcon size={16} />
           </a>
-          <a href="#" className="team-social-icon" aria-label="Twitter">
-            <Twitter size={16} />
+          <a href="mailto:Hayatudeen.m.bello@gmail.com" className="team-social-icon" aria-label="Email">
+            <Mail size={16} />
           </a>
         </div>
       </div>
@@ -127,16 +134,18 @@ export default function TeamSection() {
             style={{ fontFamily: "var(--font-heading)" }}
             data-cursor="text"
           >
-            Meet the Creators
+            Meet the Creator
           </h2>
         </div>
 
         <div
           ref={gridRef}
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          className="mx-auto flex max-w-sm justify-center"
         >
           {TEAM.map((member) => (
-            <TeamCard key={member.name} member={member} />
+            <div key={member.name} className="w-full">
+              <TeamCard member={member} />
+            </div>
           ))}
         </div>
       </div>

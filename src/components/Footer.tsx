@@ -1,7 +1,24 @@
 "use client";
 
 import { useRef, useCallback } from "react";
-import { Github, Linkedin, Twitter, Instagram, ArrowRight } from "lucide-react";
+import { Mail, ArrowRight } from "lucide-react";
+
+// Raw SVGs for brand icons removed from the lucide-react library
+const InstagramIcon = ({ size = 24 }: { size?: number }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+  </svg>
+);
+
+const LinkedinIcon = ({ size = 24 }: { size?: number }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+    <rect width="4" height="12" x="2" y="9"/>
+    <circle cx="4" cy="4" r="2"/>
+  </svg>
+);
 import gsap from "gsap";
 
 const FOOTER_COLUMNS = [
@@ -24,18 +41,19 @@ const FOOTER_COLUMNS = [
 ];
 
 const SOCIAL_ICONS = [
-  { icon: Github, label: "GitHub" },
-  { icon: Linkedin, label: "LinkedIn" },
-  { icon: Twitter, label: "Twitter" },
-  { icon: Instagram, label: "Instagram" },
+  { icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/man_like_hayat?igsh=bzM2NmEydWsxcGZm" },
+  { icon: LinkedinIcon, label: "LinkedIn", href: "https://www.linkedin.com/in/man1ikehayat?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
+  { icon: Mail, label: "Email", href: "mailto:Hayatudeen.m.bello@gmail.com" },
 ];
 
 function MagneticIcon({
   icon: Icon,
   label,
+  href,
 }: {
   icon: React.ComponentType<{ size?: number }>;
   label: string;
+  href: string;
 }) {
   const ref = useRef<HTMLAnchorElement>(null);
 
@@ -68,7 +86,9 @@ function MagneticIcon({
   return (
     <a
       ref={ref}
-      href="#"
+      href={href}
+      target={href.startsWith("http") ? "_blank" : undefined}
+      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
       className="magnetic-icon"
       aria-label={label}
       onMouseMove={handleMouseMove}
@@ -140,7 +160,7 @@ export default function Footer() {
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <div className="flex gap-4">
             {SOCIAL_ICONS.map((s) => (
-              <MagneticIcon key={s.label} icon={s.icon} label={s.label} />
+              <MagneticIcon key={s.label} icon={s.icon} label={s.label} href={s.href} />
             ))}
           </div>
 
