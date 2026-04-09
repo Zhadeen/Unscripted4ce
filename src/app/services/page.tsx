@@ -61,7 +61,11 @@ export default function ServicesPage() {
   }, []);
 
   return (
-    <div ref={containerRef} className="min-h-screen pt-32 pb-32 relative overflow-hidden" style={{ background: "#050505" }}>
+    <div 
+      ref={containerRef} 
+      className="skew-section min-h-screen pt-40 pb-32 relative overflow-hidden" 
+      style={{ background: "#050505" }}
+    >
       
       {/* Decorative gradient */}
       <div className="pointer-events-none absolute top-0 -left-1/4 h-[800px] w-[800px] rounded-full bg-accent/5 blur-[200px]" />
@@ -70,16 +74,16 @@ export default function ServicesPage() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10 flex flex-col gap-16 md:gap-24">
         
         {/* Header Section */}
-        <div className="mt-12 md:mt-24 max-w-3xl">
+        <div className="mt-12 md:mt-24 max-w-4xl">
           <p className="reveal-text mb-6 text-sm font-medium uppercase tracking-[0.3em] text-accent font-mono">
             Our Offerings
           </p>
-          <h1 className="text-5xl font-bold leading-[1.05] tracking-tight uppercase md:text-7xl lg:text-[7.5rem] mb-8" style={{ fontFamily: "var(--font-display)" }}>
-            <div className="overflow-hidden"><span className="reveal-text inline-block">Premium</span></div>
-            <div className="overflow-hidden"><span className="reveal-text inline-block text-accent">Services.</span></div>
+          <h1 className="text-5xl font-bold leading-[1.05] tracking-tight uppercase md:text-7xl lg:text-[8rem] mb-10" style={{ fontFamily: "var(--font-display)" }}>
+            <div className="overflow-hidden h-[1.1em]"><span className="reveal-text inline-block">Premium</span></div>
+            <div className="overflow-hidden h-[1.1em]"><span className="reveal-text inline-block text-accent">Services.</span></div>
           </h1>
           <div className="overflow-hidden max-w-2xl">
-            <p className="reveal-text text-text/70 leading-relaxed md:text-xl">
+            <p className="reveal-text text-white/80 leading-relaxed md:text-xl">
               We deliver bespoke digital solutions for brands and organizations that refuse compromise. Every service is tailored to elevate your business and separate you from the noise.
             </p>
           </div>
@@ -92,21 +96,21 @@ export default function ServicesPage() {
             return (
               <div 
                 key={index} 
-                className="service-card group relative overflow-hidden rounded-2xl bg-white/[0.02] border border-white/10 p-8 md:p-12 transition-all duration-500 hover:bg-white/[0.04] hover:border-accent/40"
+                className="service-card group relative overflow-hidden rounded-2xl bg-white/[0.03] border border-white/10 p-8 md:p-12 transition-all duration-500 hover:bg-white/[0.05] hover:border-accent/40"
               >
                 {/* Subtle Hover Gradient Inside Card */}
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/0 via-transparent to-transparent opacity-0 group-hover:opacity-10 transition-opacity duration-700" />
                 
                 <div className="relative z-10 flex flex-col h-full">
-                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-black/50 border border-white/5 text-accent shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-black border border-white/10 text-accent shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
                     <Icon strokeWidth={1.5} size={32} />
                   </div>
                   
-                  <h3 className="mb-4 text-2xl font-bold text-text md:text-3xl" style={{ fontFamily: "var(--font-heading)" }}>
+                  <h3 className="mb-4 text-2xl font-bold text-white md:text-3xl" style={{ fontFamily: "var(--font-heading)" }}>
                     {service.title}
                   </h3>
                   
-                  <p className="text-text/70 leading-relaxed text-sm md:text-base flex-grow">
+                  <p className="text-white/60 leading-relaxed text-sm md:text-base flex-grow">
                     {service.description}
                   </p>
                   
@@ -121,10 +125,10 @@ export default function ServicesPage() {
         {/* CTA Section */}
         <div className="mt-12 overflow-hidden flex flex-col items-center justify-center text-center p-12 lg:p-24 rounded-3xl border border-white/10 relative">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-accent/5" />
-          <h2 className="reveal-text text-3xl md:text-5xl font-bold mb-6 relative z-10" style={{ fontFamily: "var(--font-heading)" }}>
+          <h2 className="reveal-text text-3xl md:text-5xl font-bold mb-6 relative z-10 text-white" style={{ fontFamily: "var(--font-heading)" }}>
             Ready to elevate your brand?
           </h2>
-          <p className="reveal-text text-text/60 max-w-xl mx-auto mb-10 relative z-10">
+          <p className="reveal-text text-white/50 max-w-xl mx-auto mb-10 relative z-10">
             Let&apos;s collaborate to build something extraordinary. We only take on projects where we can deliver uncompromising excellence.
           </p>
           <div className="reveal-text relative z-10">
@@ -137,7 +141,6 @@ export default function ServicesPage() {
             </Link>
           </div>
         </div>
-
       </div>
     </div>
   );
