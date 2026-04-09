@@ -54,8 +54,8 @@ export default function Navigation() {
             style={{ fontFamily: "var(--font-heading)" }}
           >
             <div className="flex flex-col leading-tight">
-              <span>UNSCRiPTE<span className="text-accent">Δ</span></span>
-              <span className="text-xs tracking-[0.4em] text-accent/80 md:text-sm">ΔESiGNS.</span>
+              <span>UNSCRiPTED</span>
+              <span className="text-xs tracking-[0.4em] text-accent/80 md:text-sm">DESiGNS.</span>
             </div>
           </a>
 

@@ -169,8 +169,8 @@ export default function Footer() {
             style={{ fontFamily: "var(--font-mono)" }}
           >
             <div className="flex flex-col items-center md:items-start leading-tight">
-              <span className="font-heading font-bold text-text">UNSCRiPTEΔ</span>
-              <span className="text-[10px] tracking-[0.3em] text-accent uppercase font-bold">ΔESiGNS.</span>
+              <span className="font-heading font-bold text-text uppercase">UNSCRiPTED</span>
+              <span className="text-[10px] tracking-[0.3em] text-accent uppercase font-bold">DESiGNS.</span>
               <span className="mt-2 text-[10px] text-text/30 font-mono tracking-normal">
                 &copy; {new Date().getFullYear()} ALL RIGHTS RESERVED.
               </span>

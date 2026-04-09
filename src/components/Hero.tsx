@@ -119,7 +119,7 @@ export default function Hero() {
           className="mb-8 text-5xl font-bold leading-[1.1] tracking-tight md:text-7xl lg:text-8xl"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Elevating Δigital Through Raw Δesign.
+          Elevating Digital Through Raw Design.
         </h1>
 
         <p
@@ -127,7 +127,7 @@ export default function Hero() {
           className="mb-12 max-w-2xl text-center text-lg leading-relaxed text-text/60 md:text-xl"
           style={{ fontFamily: "var(--font-body)" }}
         >
-          UNSCRiPTEΔ. Unfiltered. Unmatched. We specialize in building immersive
+          UNSCRiPTED. Unfiltered. Unmatched. We specialize in building immersive
           digital experiences for brands that refuse to be ignored.
         </p>
 
