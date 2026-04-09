@@ -2,6 +2,7 @@
 
 import { useRef, useCallback } from "react";
 import { Mail, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 // Raw SVGs for brand icons removed from the lucide-react library
 const InstagramIcon = ({ size = 24 }: { size?: number }) => (
@@ -185,13 +186,13 @@ export default function Footer() {
             className="text-sm text-text/30"
             style={{ fontFamily: "var(--font-mono)" }}
           >
-            <div className="flex flex-col items-center md:items-start leading-none">
+            <Link href="/" className="flex flex-col items-center md:items-start leading-none group cursor-pointer transition-opacity hover:opacity-80">
               <span className="font-heading font-black text-lg text-text uppercase tracking-tight">UNSCRiPTED</span>
               <span className="text-[9px] tracking-[0.3em] text-accent uppercase font-black">DESiGNS.</span>
               <span className="mt-4 text-[9px] text-text/30 font-mono tracking-normal uppercase font-bold">
                 &copy; {new Date().getFullYear()} ALL RIGHTS RESERVED.
               </span>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
