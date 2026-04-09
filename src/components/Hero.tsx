@@ -20,8 +20,7 @@ export default function Hero() {
     const words = titleText.split(" ");
     words.forEach((word, wi) => {
       const wordSpan = document.createElement("span");
-      wordSpan.style.display = "inline-block";
-      wordSpan.style.whiteSpace = "nowrap";
+      wordSpan.className = "hero-title-word";
 
       for (const char of word) {
         const charSpan = document.createElement("span");
@@ -34,7 +33,7 @@ export default function Hero() {
       if (wi < words.length - 1) {
         const space = document.createElement("span");
         space.innerHTML = "&nbsp;";
-        space.className = "hero-title-char";
+        space.style.display = "inline-block";
         titleRef.current!.appendChild(space);
       }
     });
@@ -116,7 +115,7 @@ export default function Hero() {
 
         <h1
           ref={titleRef}
-          className="mb-8 text-5xl font-bold leading-[1.1] tracking-tight md:text-7xl lg:text-8xl"
+          className="mb-8 text-title font-bold leading-[1.05] tracking-tight uppercase"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Elevating Digital Through Raw Design.

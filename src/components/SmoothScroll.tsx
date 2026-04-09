@@ -26,6 +26,11 @@ export default function SmoothScroll({
     // Sync Lenis with GSAP ScrollTrigger
     lenis.on("scroll", ScrollTrigger.update);
 
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+    window.addEventListener("resize", handleResize);
+
     const rafCallback = (time: number) => {
       lenis.raf(time * 1000);
     };
@@ -64,6 +69,7 @@ export default function SmoothScroll({
     });
 
     return () => {
+      window.removeEventListener("resize", handleResize);
       gsap.ticker.remove(rafCallback);
       lenis.destroy();
     };
