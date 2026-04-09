@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "images.pexels.com" },
     ],
   },
+  devIndicators: {
+    buildActivity: false,
+  },
 };
 
 export default nextConfig;
