@@ -80,32 +80,32 @@ export default function Navigation() {
 
           {/* Desktop Nav Links */}
           <div className="hidden items-center gap-8 lg:flex">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleLinkClick(link.href);
-                }}
-                className={cn(
-                  "nav-link",
-                  pathname === "/" && activeLink === link.href && "active"
-                )}
-              >
-                {link.label}
-              </a>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isActive = link.href.startsWith("/") 
+                ? pathname === link.href
+                : pathname === "/" && activeLink === link.href;
+
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLinkClick(link.href);
+                  }}
+                  className={cn("nav-link", isActive && "active")}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </div>
 
           {/* Desktop CTA & Resume */}
           <div className="hidden items-center gap-6 lg:flex">
             <Link
               href="/resume"
-              className={cn(
-                "text-sm font-medium uppercase tracking-widest transition-colors hover:text-accent font-mono",
-                pathname === "/resume" ? "text-accent" : "text-text/60"
-              )}
+              className={cn("nav-link", pathname === "/resume" && "active")}
             >
               Resume
             </Link>
