@@ -164,7 +164,7 @@ export default function Footer() {
             ))}
           </div>
 
-          <p
+          <div
             className="text-sm text-text/30"
             style={{ fontFamily: "var(--font-mono)" }}
           >
@@ -174,7 +174,8 @@ export default function Footer() {
               <span className="mt-2 text-[10px] text-text/30 font-mono tracking-normal">
                 &copy; {new Date().getFullYear()} ALL RIGHTS RESERVED.
               </span>
-            </div>          </p>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
