@@ -179,9 +179,8 @@ export default function TeamSection() {
           <div ref={leftColRef} className="flex flex-col gap-12 lg:pt-10">
             
             <div className="about-block">
-              <h2 className="text-2xl font-bold uppercase tracking-wide md:text-3xl text-text mb-4 flex items-center gap-4" style={{ fontFamily: "var(--font-heading)" }}>
-                <span className="w-8 h-[2px] bg-accent inline-block"></span>
-                About Unscripted Designs
+              <h2 className="text-3xl font-black uppercase tracking-[-0.05em] md:text-5xl text-text mb-6 flex items-center gap-4 border-b border-white/5 pb-4" style={{ fontFamily: "var(--font-heading)" }}>
+                About
               </h2>
               <p className="text-text/70 leading-relaxed md:text-lg pl-12 border-l border-white/5">
                 Unscripted Designs is a digital-first creative practice at the intersection of design excellence and emerging technology. Founded on the principle that truly exceptional work happens when strategy, aesthetic precision, and innovation converge, we deliver bespoke digital solutions for brands and organizations that refuse compromise.
@@ -199,10 +198,12 @@ export default function TeamSection() {
                 The Visionary
               </p>
               <h2
-                className="text-4xl font-bold md:text-5xl mb-10 right-content"
+                className="text-5xl font-black md:text-[6.5rem] leading-[0.9] tracking-[-0.05em] uppercase mb-12 right-content"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                Meet the Creator
+                Meet the
+                <br />
+                Creator
               </h2>
 
               <div className="w-full max-w-sm right-content group">

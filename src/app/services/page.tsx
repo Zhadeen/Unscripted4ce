@@ -83,7 +83,7 @@ export default function ServicesPage() {
           <p className="reveal-text mb-6 text-sm font-medium uppercase tracking-[0.3em] text-accent font-mono opacity-100">
             Our Offerings
           </p>
-          <h1 className="text-5xl font-bold leading-[1.05] tracking-tight uppercase md:text-7xl lg:text-[8rem] mb-10 text-white opacity-100" style={{ fontFamily: "var(--font-display)" }}>
+          <h1 className="text-5xl font-black leading-[0.9] tracking-[-0.05em] uppercase md:text-7xl lg:text-[10rem] mb-12 text-white opacity-100" style={{ fontFamily: "var(--font-display)" }}>
             <div className="overflow-hidden h-auto py-2"><span className="reveal-text inline-block">Premium</span></div>
             <div className="overflow-hidden h-auto py-2"><span className="reveal-text inline-block text-accent">Services.</span></div>
           </h1>
@@ -111,7 +111,7 @@ export default function ServicesPage() {
                     <Icon strokeWidth={1.5} size={32} />
                   </div>
                   
-                  <h3 className="mb-4 text-2xl font-bold md:text-3xl opacity-100" style={{ fontFamily: "var(--font-heading)", color: "#FFFFFF" }}>
+                  <h3 className="mb-4 text-2xl font-black md:text-3xl opacity-100 tracking-tight" style={{ fontFamily: "var(--font-heading)", color: "#FFFFFF" }}>
                     {service.title}
                   </h3>
                   
