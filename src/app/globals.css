@@ -4,18 +4,18 @@
    CUSTOM THEME - Tailwind CSS v4
    ============================================ */
 @theme {
-  --color-bg: #050505;
-  --color-text: #FFFFFF;
+  --color-bg: #0a0a0a;
+  --color-text: #f5f0e8;
   --color-accent: #ff4d00;
   --color-secondary: #8b5cf6;
   --color-border: rgba(255, 255, 255, 0.1);
-  --color-overlay: rgba(5, 5, 5, 0.8);
+  --color-overlay: rgba(10, 10, 10, 0.7);
 
   --font-heading: var(--font-syne), sans-serif;
   --font-display: var(--font-outfit), sans-serif;
   --font-body: var(--font-inter), sans-serif;
   --font-mono: var(--font-jetbrains-mono), monospace;
-  --text-title: clamp(2.5rem, 15vw, 11rem);
+  --text-title: clamp(2rem, 6vw, 4.5rem);
 }
 
 /* ============================================

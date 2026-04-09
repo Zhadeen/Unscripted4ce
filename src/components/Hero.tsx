@@ -105,7 +105,7 @@ export default function Hero() {
 
         <h1
           ref={titleRef}
-          className="mb-8 text-title font-black leading-[0.9] tracking-[-0.05em] uppercase"
+          className="mb-8 text-title font-bold leading-[1.05] tracking-tight uppercase"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Elevating Digital Through Raw Design.

@@ -141,7 +141,7 @@ export default function ProjectShowcase() {
           Selected Work
         </p>
         <h2
-          className="text-5xl font-black md:text-7xl uppercase tracking-[-0.05em] leading-[0.9]"
+          className="text-4xl font-bold md:text-5xl"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           Our Projects

@@ -43,16 +43,16 @@ export default function AboutPage() {
           <p className="reveal-text mb-6 text-sm font-medium uppercase tracking-[0.3em] text-accent font-mono">
             Our Story
           </p>
-          <h1 className="text-5xl font-black leading-[0.9] tracking-[-0.05em] uppercase md:text-7xl lg:text-[10rem]" style={{ fontFamily: "var(--font-display)" }}>
-            <div className="overflow-hidden h-auto py-2"><span className="reveal-text inline-block">Unscripted</span></div>
-            <div className="overflow-hidden h-auto py-2"><span className="reveal-text inline-block text-accent">Designs.</span></div>
+          <h1 className="text-5xl font-bold leading-[1.05] tracking-tight uppercase md:text-7xl lg:text-[7.5rem]" style={{ fontFamily: "var(--font-display)" }}>
+            <div className="overflow-hidden"><span className="reveal-text inline-block">Unscripted</span></div>
+            <div className="overflow-hidden"><span className="reveal-text inline-block text-accent">Designs.</span></div>
           </h1>
         </div>
 
         {/* Content Blocks */}
         <div className="flex flex-col gap-16 md:gap-20">
           <div className="about-block">
-            <h2 className="text-3xl font-black uppercase tracking-[-0.05em] leading-[0.9] md:text-5xl text-text mb-8 flex items-center gap-4" style={{ fontFamily: "var(--font-heading)" }}>
+            <h2 className="text-xl font-bold uppercase tracking-wide md:text-2xl text-text mb-6 flex items-center gap-4" style={{ fontFamily: "var(--font-heading)" }}>
               <span className="w-8 h-[2px] bg-accent inline-block"></span>
               About Unscripted Designs
             </h2>
@@ -62,7 +62,7 @@ export default function AboutPage() {
           </div>
 
           <div className="about-block">
-            <h2 className="text-3xl font-black uppercase tracking-[-0.05em] leading-[0.9] md:text-5xl text-text mb-8" style={{ fontFamily: "var(--font-heading)" }}>
+            <h2 className="text-xl font-bold uppercase tracking-wide md:text-2xl text-text mb-6" style={{ fontFamily: "var(--font-heading)" }}>
               What We Do
             </h2>
             <p className="text-text/70 leading-relaxed md:text-lg">
@@ -71,7 +71,7 @@ export default function AboutPage() {
           </div>
 
           <div className="about-block">
-            <h2 className="text-3xl font-black uppercase tracking-[-0.05em] leading-[0.9] md:text-5xl text-text mb-8" style={{ fontFamily: "var(--font-heading)" }}>
+            <h2 className="text-xl font-bold uppercase tracking-wide md:text-2xl text-text mb-6" style={{ fontFamily: "var(--font-heading)" }}>
               Our Approach
             </h2>
             <p className="text-text/70 leading-relaxed md:text-lg">
@@ -80,7 +80,7 @@ export default function AboutPage() {
           </div>
 
           <div className="about-block">
-            <h2 className="text-3xl font-black uppercase tracking-[-0.05em] leading-[0.9] md:text-5xl text-text mb-8" style={{ fontFamily: "var(--font-heading)" }}>
+            <h2 className="text-xl font-bold uppercase tracking-wide md:text-2xl text-text mb-6" style={{ fontFamily: "var(--font-heading)" }}>
               Who We Work With
             </h2>
             <p className="text-text/70 leading-relaxed md:text-lg">
@@ -89,7 +89,7 @@ export default function AboutPage() {
           </div>
 
           <div className="about-block">
-            <h2 className="text-3xl font-black uppercase tracking-[-0.05em] leading-[0.9] md:text-5xl text-text mb-8" style={{ fontFamily: "var(--font-heading)" }}>
+            <h2 className="text-xl font-bold uppercase tracking-wide md:text-2xl text-text mb-6" style={{ fontFamily: "var(--font-heading)" }}>
               The Platform
             </h2>
              <p className="text-text/70 leading-relaxed md:text-lg">
