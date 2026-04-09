@@ -53,7 +53,7 @@ export default function Navigation() {
             className="font-heading text-xl font-bold tracking-wider"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            UNSCRIPTED<span className="text-accent"> DESIGNS.</span>
+            UNSCRiPTE<span className="text-accent">Δ</span> <span className="text-accent">Δ</span>ESiGNS.
           </a>
 
           {/* Desktop Nav Links */}
