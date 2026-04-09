@@ -23,20 +23,37 @@ import gsap from "gsap";
 
 const FOOTER_COLUMNS = [
   {
-    title: "Company",
-    links: ["About", "Blog", "Careers", "Contact"],
+    title: "Navigation",
+    links: [
+      { label: "Home", href: "/#hero" },
+      { label: "Work", href: "/#work" },
+      { label: "Services", href: "/#services" },
+      { label: "Resume", href: "/resume" },
+    ],
   },
   {
-    title: "Services",
-    links: ["Web Design", "Branding", "Motion Design", "Development"],
+    title: "Expertise",
+    links: [
+      { label: "UI/UX Design", href: "#" },
+      { label: "AI Automation", href: "#" },
+      { label: "Prompt Engineering", href: "#" },
+      { label: "Web Design", href: "#" },
+    ],
   },
   {
-    title: "Resources",
-    links: ["Documentation", "Support", "Community", "Changelog"],
+    title: "Socials",
+    links: [
+      { label: "LinkedIn", href: "https://linkedin.com/in/man1ikehayat" },
+      { label: "Instagram", href: "https://www.instagram.com/man_like_hayat?igsh=bzM2NmEydWsxcGZm" },
+      { label: "Email", href: "mailto:Hayatudeen.m.bello@gmail.com" },
+    ],
   },
   {
     title: "Legal",
-    links: ["Privacy Policy", "Terms of Service", "Cookie Policy"],
+    links: [
+      { label: "Privacy Policy", href: "#" },
+      { label: "Terms of Service", href: "#" },
+    ],
   },
 ];
 
@@ -115,9 +132,9 @@ export default function Footer() {
               </h4>
               <ul className="flex flex-col gap-3">
                 {col.links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="footer-link">
-                      {link}
+                  <li key={link.label}>
+                    <a href={link.href} className="footer-link">
+                      {link.label}
                     </a>
                   </li>
                 ))}
