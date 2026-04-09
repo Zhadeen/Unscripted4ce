@@ -105,19 +105,18 @@ export default function Hero() {
 
         <h1
           ref={titleRef}
-          className="mb-8 text-title font-bold leading-[1.05] tracking-tight uppercase"
+          className="mb-8 text-title font-black leading-[1.1] tracking-tighter uppercase inline-block bg-accent text-black px-4 md:px-6 py-2"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Elevating Digital Through Raw Design.
+          Design Without Compromise
         </h1>
 
         <p
           ref={subtitleRef}
-          className="mb-12 max-w-xl text-center text-base leading-relaxed text-text/60 md:text-xl lg:text-lg xl:text-xl"
+          className="mb-12 max-w-xl text-center text-base leading-relaxed text-text md:text-xl lg:text-lg xl:text-xl font-medium"
           style={{ fontFamily: "var(--font-body)" }}
         >
-          UNSCRiPTED. Unfiltered. Unmatched. We specialize in building immersive
-          digital experiences for brands that refuse to be ignored.
+          Where deliberate strategy meets unrelenting craftsmanship. We don&apos;t follow formulas we create futures.
         </p>
 
         <div className="flex justify-center">
