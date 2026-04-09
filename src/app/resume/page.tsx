@@ -314,7 +314,7 @@ export default function ResumePage() {
 
         {/* ── FOOTER CTA ────────────────────────────────────────── */}
         <footer className="resume-footer reveal-item">
-          <p className="resume-footer-label">Let's create something extraordinary.</p>
+          <p className="resume-footer-label">Let&apos;s create something extraordinary.</p>
           <a href={`mailto:${PROFILE.email}`} className="resume-footer-cta">
             <Mail size={16} />
             {PROFILE.email}
