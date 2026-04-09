@@ -27,17 +27,17 @@ const FOOTER_COLUMNS = [
     links: [
       { label: "Home", href: "/#hero" },
       { label: "Work", href: "/#work" },
-      { label: "Services", href: "/#services" },
+      { label: "Services", href: "/services" },
       { label: "Resume", href: "/resume" },
     ],
   },
   {
     title: "Expertise",
     links: [
-      { label: "UI/UX Design", href: "#" },
-      { label: "AI Automation", href: "#" },
-      { label: "Prompt Engineering", href: "#" },
-      { label: "Web Design", href: "#" },
+      { label: "UI/UX Design", href: "/services" },
+      { label: "AI Automation", href: "/services" },
+      { label: "Prompt Engineering", href: "/services" },
+      { label: "Web Design", href: "/services" },
     ],
   },
   {
