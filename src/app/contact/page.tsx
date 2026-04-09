@@ -110,8 +110,8 @@ export default function ContactPage() {
                
                <h3 className="mb-6 text-2xl font-bold uppercase tracking-wide mt-2" style={{ fontFamily: "var(--font-heading)" }}>Ready to collaborate?</h3>
                <p className="mb-10 text-text/70 leading-relaxed max-w-sm">
-                 Whether you have a fully fledged concept or just a spark of an idea, we're here to help you scale it beautifully. 
-                 Reach out through any of the channels and let's craft something uncompromising.
+                 Whether you have a fully fledged concept or just a spark of an idea, we&apos;re here to help you scale it beautifully. 
+                 Reach out through any of the channels and let&apos;s craft something uncompromising.
                </p>
                <a 
                 href="mailto:Hayatudeen.m.bello@gmail.com" 

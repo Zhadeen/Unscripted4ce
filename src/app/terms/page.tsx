@@ -44,7 +44,7 @@ export default function TermsOfService() {
         <section>
           <h2 className="mb-4 text-2xl font-semibold text-text uppercase tracking-wide" style={{ fontFamily: "var(--font-heading)" }}>4. No Warranties</h2>
           <p>
-            This website is provided "as is," with all faults, and Unscripted Designs expresses no representations or warranties, of any kind related to this website or the materials contained on this website.
+            This website is provided &quot;as is,&quot; with all faults, and Unscripted Designs expresses no representations or warranties, of any kind related to this website or the materials contained on this website.
           </p>
         </section>
 
