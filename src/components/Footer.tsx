@@ -168,8 +168,13 @@ export default function Footer() {
             className="text-sm text-text/30"
             style={{ fontFamily: "var(--font-mono)" }}
           >
-            &copy; {new Date().getFullYear()} UNSCRiPTEΔ ΔESiGNS. All rights reserved.
-          </p>
+            <div className="flex flex-col items-center md:items-start leading-tight">
+              <span className="font-heading font-bold text-text">UNSCRiPTEΔ</span>
+              <span className="text-[10px] tracking-[0.3em] text-accent uppercase font-bold">ΔESiGNS.</span>
+              <span className="mt-2 text-[10px] text-text/30 font-mono tracking-normal">
+                &copy; {new Date().getFullYear()} ALL RIGHTS RESERVED.
+              </span>
+            </div>          </p>
         </div>
       </div>
     </footer>
