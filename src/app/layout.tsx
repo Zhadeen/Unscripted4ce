@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, Inter, JetBrains_Mono } from "next/font/google";
-import localFont from "next/font/local";
+import { Syne, Inter, JetBrains_Mono, Outfit } from "next/font/google";
 import "./globals.css";
 import ClientLayout from "@/components/ClientLayout";
 
@@ -24,15 +23,11 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500", "700"],
 });
 
-const clashDisplay = localFont({
-  src: [
-    {
-      path: "../fonts/ClashDisplay-Variable.woff2",
-      style: "normal",
-    },
-  ],
-  variable: "--font-clash-display",
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
   display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -49,7 +44,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${inter.variable} ${jetbrainsMono.variable} ${clashDisplay.variable}`}
+      className={`${syne.variable} ${inter.variable} ${jetbrainsMono.variable} ${outfit.variable}`}
     >
       <body>
         <ClientLayout>{children}</ClientLayout>
