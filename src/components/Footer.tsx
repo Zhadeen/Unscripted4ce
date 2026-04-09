@@ -118,7 +118,7 @@ function MagneticIcon({
 
 export default function Footer() {
   return (
-    <footer id="contact" className="border-t border-white/5 bg-[#050505]">
+    <footer className="border-t border-white/5 bg-[#050505]">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
         {/* Top: columns + newsletter */}
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-5">

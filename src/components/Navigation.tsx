@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navigation() {
@@ -32,6 +32,11 @@ export default function Navigation() {
 
   const handleLinkClick = (href: string) => {
     setMenuOpen(false);
+
+    if (href.startsWith("/")) {
+      router.push(href);
+      return;
+    }
 
     if (pathname !== "/") {
       router.push("/" + href);
@@ -104,17 +109,14 @@ export default function Navigation() {
             >
               Resume
             </Link>
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                handleLinkClick("#contact");
-              }}
+            <Link
+              href="/contact"
+              onClick={() => setMenuOpen(false)}
               className="hero-cta"
             >
               <span>Start a Project</span>
               <ArrowRight size={16} className="hero-cta-arrow" />
-            </a>
+            </Link>
           </div>
 
           {/* Hamburger Menu Button */}
