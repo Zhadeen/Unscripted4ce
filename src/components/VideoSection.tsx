@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -92,13 +92,7 @@ export default function VideoSection() {
             <span>Start a Project</span>
             <ArrowRight size={16} className="hero-cta-arrow" />
           </Link>
-          <button
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-text transition-colors hover:border-accent hover:text-accent"
-            aria-label="Watch showreel"
-          >
-            <Play size={16} />
-            Watch Showreel
-          </button>
+
         </div>
       </div>
     </section>
