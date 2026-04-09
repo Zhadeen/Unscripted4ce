@@ -56,45 +56,62 @@ const TeamCard = memo(function TeamCard({
           className="object-cover object-top"
           unoptimized
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
       </div>
-      <div className="team-card-overlay p-6 bg-black/80 backdrop-blur-md absolute bottom-0 left-0 right-0 border-t border-white/10 transform translate-y-full opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 pointer-events-none group-hover:pointer-events-auto">
-        <h3
-          className="text-xl font-bold text-text mb-1"
-          style={{ fontFamily: "var(--font-heading)" }}
-        >
-          {member.name}
-        </h3>
-        <p className="mb-3 text-xs uppercase tracking-widest font-mono text-accent">{member.role}</p>
-        <p className="text-sm leading-relaxed text-text/60 mb-5">{member.bio}</p>
-        <div className="team-card-socials flex gap-4">
-          <a 
-            href="https://www.instagram.com/man_like_hayat?igsh=bzM2NmEydWsxcGZm" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            onClick={(e) => e.stopPropagation()}
-            className="team-social-icon text-text/50 hover:text-accent transition-colors" 
-            aria-label="Instagram"
+      
+      <div className="absolute bottom-0 left-0 right-0 p-6 z-20 flex flex-col justify-end overflow-hidden">
+        <div className="relative z-10 transition-transform duration-500 transform translate-y-4 group-hover:translate-y-0">
+          <h3
+            className="text-xl font-bold text-white mb-1 drop-shadow-lg"
+            style={{ fontFamily: "var(--font-heading)" }}
           >
-            <InstagramIcon size={20} />
-          </a>
-          <a 
-            href="https://www.linkedin.com/in/man1ikehayat?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            onClick={(e) => e.stopPropagation()}
-            className="team-social-icon text-text/50 hover:text-accent transition-colors" 
-            aria-label="LinkedIn"
+            {member.name}
+          </h3>
+          <p className="mb-4 text-xs uppercase tracking-widest font-mono text-accent drop-shadow-md">{member.role}</p>
+          
+          <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
+            <div className="overflow-hidden opacity-0 group-hover:opacity-100 transition-all duration-500">
+              <p className="text-sm leading-relaxed text-white/80 mb-5">{member.bio}</p>
+              <div className="team-card-socials flex gap-4 mb-6">
+                <a 
+                  href="https://www.instagram.com/man_like_hayat?igsh=bzM2NmEydWsxcGZm" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  onClick={(e) => e.stopPropagation()}
+                  className="team-social-icon text-white/50 hover:text-accent transition-colors" 
+                  aria-label="Instagram"
+                >
+                  <InstagramIcon size={20} />
+                </a>
+                <a 
+                  href="https://www.linkedin.com/in/man1ikehayat?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  onClick={(e) => e.stopPropagation()}
+                  className="team-social-icon text-white/50 hover:text-accent transition-colors" 
+                  aria-label="LinkedIn"
+                >
+                  <LinkedinIcon size={20} />
+                </a>
+                <a 
+                  href="mailto:Hayatudeen.m.bello@gmail.com" 
+                  onClick={(e) => e.stopPropagation()}
+                  className="team-social-icon text-white/50 hover:text-accent transition-colors" 
+                  aria-label="Email"
+                >
+                  <Mail size={20} />
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <Link 
+            href="/about" 
+            onClick={(e) => e.stopPropagation()} 
+            className="mt-2 w-full block text-center rounded-lg border border-accent/20 bg-accent/10 backdrop-blur-sm py-3 text-xs font-bold uppercase tracking-widest text-accent hover:bg-accent hover:text-black transition-all"
           >
-            <LinkedinIcon size={20} />
-          </a>
-          <a 
-            href="mailto:Hayatudeen.m.bello@gmail.com" 
-            onClick={(e) => e.stopPropagation()}
-            className="team-social-icon text-text/50 hover:text-accent transition-colors" 
-            aria-label="Email"
-          >
-            <Mail size={20} />
-          </a>
+            Read More
+          </Link>
         </div>
       </div>
     </div>
