@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 const PROJECTS = [
   {
     id: 1,
-    title: "Unscripted Designs",
+    title: "YMY Consultancy",
     description:
       "Book verified, professional tour guides worldwide. Premium guided experiences in minutes.",
     tags: ["Platform", "Tour Booking", "Premium"],
@@ -151,14 +151,8 @@ export default function ProjectShowcase() {
       {/* Desktop: horizontal scroll track */}
       <div
         ref={trackRef}
-        className={cn(
-          "hidden lg:flex items-end gap-10 pb-24",
-          PROJECTS.length <= 2 ? "justify-center" : "justify-start"
-        )}
-        style={{ 
-          paddingLeft: PROJECTS.length > 2 ? "max(2rem, calc((100vw - 80rem) / 2 + 1.5rem))" : "2rem", 
-          paddingRight: "2rem" 
-        }}
+        className="hidden lg:flex items-end gap-10 pb-24 justify-start"
+        style={{ paddingLeft: "max(2rem, calc((100vw - 80rem) / 2 + 1.5rem))", paddingRight: "2rem" }}
       >
         {PROJECTS.map((project) => (
           <ProjectCard key={project.id} project={project} />
