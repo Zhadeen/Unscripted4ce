@@ -5,6 +5,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Mail } from "lucide-react";
+import Link from "next/link";
 
 // Raw SVGs for brand icons
 const InstagramIcon = ({ size = 24 }: { size?: number }) => (
@@ -83,6 +84,9 @@ const TeamCard = memo(function TeamCard({
             <Mail size={20} />
           </a>
         </div>
+        <Link href="/about" className="mt-6 w-full block text-center rounded-lg border border-accent/20 bg-accent/5 py-3 text-xs font-bold uppercase tracking-widest text-accent hover:bg-accent hover:text-black transition-all">
+          Read the Full Story
+        </Link>
       </div>
     </div>
   );
@@ -146,7 +150,7 @@ export default function TeamSection() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-16 lg:gap-24">
           
           {/* LEFT COLUMN: THE WRITE UP */}
-          <div ref={leftColRef} className="flex flex-col gap-12">
+          <div ref={leftColRef} className="flex flex-col gap-12 lg:pt-10">
             
             <div className="about-block">
               <h2 className="text-xl font-bold uppercase tracking-wide md:text-2xl text-text mb-4 flex items-center gap-4" style={{ fontFamily: "var(--font-heading)" }}>
@@ -155,42 +159,6 @@ export default function TeamSection() {
               </h2>
               <p className="text-sm text-text/70 leading-relaxed pl-8 border-l border-white/5">
                 Unscripted Designs is a digital-first creative practice at the intersection of design excellence and emerging technology. Founded on the principle that truly exceptional work happens when strategy, aesthetic precision, and innovation converge, we deliver bespoke digital solutions for brands and organizations that refuse compromise.
-              </p>
-            </div>
-
-            <div className="about-block">
-              <h2 className="text-lg font-bold uppercase tracking-wide md:text-xl text-text mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-                What We Do
-              </h2>
-              <p className="text-sm text-text/70 leading-relaxed">
-                We specialize in Product Design & Brand Strategy, UI/UX Design, Web Design, and AI-driven Automation & Prompt Engineering. Our work spans digital products, brand identities, and custom web experiences, each crafted with meticulous attention to detail and a deep understanding of how design influences user behavior and business outcomes.
-              </p>
-            </div>
-
-            <div className="about-block">
-              <h2 className="text-lg font-bold uppercase tracking-wide md:text-xl text-text mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-                Our Approach
-              </h2>
-              <p className="text-sm text-text/70 leading-relaxed">
-                Our methodology is unscripted. Rather than applying templates or formulaic processes, we approach each project with fresh eyes and rigorous thinking. We believe that premium design is born from understanding—understanding your audience, your competitive landscape, your brand&apos;s unique voice, and the role design plays in your broader business strategy. Every project is bespoke. Every decision is intentional.
-              </p>
-            </div>
-
-            <div className="about-block">
-              <h2 className="text-lg font-bold uppercase tracking-wide md:text-xl text-text mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-                Who We Work With
-              </h2>
-              <p className="text-sm text-text/70 leading-relaxed">
-                We partner with forward-thinking founders, innovative consultancies, and organizations that recognize design as a competitive advantage, not an afterthought. Our ideal clients are those who understand that excellence has a cost, and that cost is worth paying.
-              </p>
-            </div>
-
-            <div className="about-block">
-              <h2 className="text-lg font-bold uppercase tracking-wide md:text-xl text-text mb-4" style={{ fontFamily: "var(--font-heading)" }}>
-                The Platform
-              </h2>
-              <p className="text-sm text-text/70 leading-relaxed">
-                This very platform is a reflection of our work. Built with cutting-edge technologies and animated with precision, it serves as both our creative showcase and our living resume—a demonstration that we practice what we preach. It&apos;s our digital business card, and it speaks volumes before a single conversation begins.
               </p>
             </div>
 
