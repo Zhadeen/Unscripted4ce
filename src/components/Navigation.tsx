@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -81,15 +82,13 @@ export default function Navigation() {
 
           {/* Desktop CTA & Resume */}
           <div className="hidden items-center gap-6 lg:flex">
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/resume"
               className="text-sm font-medium uppercase tracking-widest text-text/60 transition-colors hover:text-accent"
               style={{ fontFamily: "var(--font-mono)" }}
             >
               Resume
-            </a>
+            </Link>
             <a
               href="#contact"
               onClick={(e) => {
@@ -136,15 +135,14 @@ export default function Navigation() {
             {link.label}
           </a>
         ))}
-        <a
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/resume"
+          onClick={() => setMenuOpen(false)}
           className="mobile-menu-link text-accent mt-4"
           style={{ transitionDelay: menuOpen ? `${NAV_LINKS.length * 0.1}s` : "0s" }}
         >
           Resume
-        </a>
+        </Link>
       </div>
     </>
   );

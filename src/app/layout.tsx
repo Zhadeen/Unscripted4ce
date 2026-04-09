@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Syne, Inter, JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import ClientLayout from "@/components/ClientLayout";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -38,13 +39,6 @@ export const metadata: Metadata = {
   title: "Unscripted Designs",
   description:
     "Award-winning creative agency crafting digital experiences that push boundaries. We blend art, technology, and storytelling.",
-  keywords: [
-    "creative agency",
-    "digital design",
-    "web development",
-    "brand storytelling",
-    "motion design",
-  ],
 };
 
 export default function RootLayout({
@@ -57,7 +51,9 @@ export default function RootLayout({
       lang="en"
       className={`${syne.variable} ${inter.variable} ${jetbrainsMono.variable} ${clashDisplay.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <ClientLayout>{children}</ClientLayout>
+      </body>
     </html>
   );
 }

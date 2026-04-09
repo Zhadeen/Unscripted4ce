@@ -1,17 +1,12 @@
 "use client";
 
-import { useState, useCallback, lazy, Suspense } from "react";
-import Preloader from "@/components/Preloader";
-import CustomCursor from "@/components/CustomCursor";
-import Navigation from "@/components/Navigation";
+import { lazy, Suspense } from "react";
 import Hero from "@/components/Hero";
-import SmoothScroll from "@/components/SmoothScroll";
 
 const ProjectShowcase = lazy(() => import("@/components/ProjectShowcase"));
 const MarqueeSection = lazy(() => import("@/components/MarqueeSection"));
 const VideoSection = lazy(() => import("@/components/VideoSection"));
 const TeamSection = lazy(() => import("@/components/TeamSection"));
-const Footer = lazy(() => import("@/components/Footer"));
 
 function SectionFallback() {
   return (
@@ -22,51 +17,25 @@ function SectionFallback() {
 }
 
 export default function Home() {
-  const [loaded, setLoaded] = useState(false);
-
-  const handlePreloaderComplete = useCallback(() => {
-    setLoaded(true);
-  }, []);
-
   return (
-    <>
-      {!loaded && <Preloader onComplete={handlePreloaderComplete} />}
+    <div className="space-y-0">
+      <Hero />
 
-      <CustomCursor />
+      <Suspense fallback={<SectionFallback />}>
+        <ProjectShowcase />
+      </Suspense>
 
-      <div
-        style={{
-          opacity: loaded ? 1 : 0,
-          transition: "opacity 0.5s ease",
-        }}
-      >
-        <SmoothScroll>
-          <Navigation />
-          <main>
-            <Hero />
+      <Suspense fallback={<SectionFallback />}>
+        <MarqueeSection />
+      </Suspense>
 
-            <Suspense fallback={<SectionFallback />}>
-              <ProjectShowcase />
-            </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+        <VideoSection />
+      </Suspense>
 
-            <Suspense fallback={<SectionFallback />}>
-              <MarqueeSection />
-            </Suspense>
-
-            <Suspense fallback={<SectionFallback />}>
-              <VideoSection />
-            </Suspense>
-
-            <Suspense fallback={<SectionFallback />}>
-              <TeamSection />
-            </Suspense>
-          </main>
-
-          <Suspense fallback={<SectionFallback />}>
-            <Footer />
-          </Suspense>
-        </SmoothScroll>
-      </div>
-    </>
+      <Suspense fallback={<SectionFallback />}>
+        <TeamSection />
+      </Suspense>
+    </div>
   );
 }
