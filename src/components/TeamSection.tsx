@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Mail } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 // Raw SVGs for brand icons
 const InstagramIcon = ({ size = 24 }: { size?: number }) => (
@@ -40,9 +41,13 @@ const TeamCard = memo(function TeamCard({
 }: {
   member: (typeof TEAM)[0];
 }) {
+  const router = useRouter();
   return (
-    <div className="team-card ring-1 ring-white/10 rounded-2xl overflow-hidden hover:ring-accent transition-all duration-500">
-      <div className="team-card-image relative aspect-[4/5] w-full">
+    <div 
+      onClick={() => router.push("/about")}
+      className="team-card cursor-pointer group relative ring-1 ring-white/10 rounded-2xl overflow-hidden hover:ring-accent transition-all duration-500"
+    >
+      <div className="team-card-image relative aspect-[4/5] w-full transition-transform duration-700 group-hover:scale-105">
         <Image
           src={member.image}
           alt={member.name}
@@ -52,7 +57,7 @@ const TeamCard = memo(function TeamCard({
           unoptimized
         />
       </div>
-      <div className="team-card-overlay p-6 bg-black/80 backdrop-blur-md absolute bottom-0 left-0 right-0 border-t border-white/10 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+      <div className="team-card-overlay p-6 bg-black/80 backdrop-blur-md absolute bottom-0 left-0 right-0 border-t border-white/10 transform translate-y-full opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 pointer-events-none group-hover:pointer-events-auto">
         <h3
           className="text-xl font-bold text-text mb-1"
           style={{ fontFamily: "var(--font-heading)" }}
@@ -66,6 +71,7 @@ const TeamCard = memo(function TeamCard({
             href="https://www.instagram.com/man_like_hayat?igsh=bzM2NmEydWsxcGZm" 
             target="_blank" 
             rel="noopener noreferrer" 
+            onClick={(e) => e.stopPropagation()}
             className="team-social-icon text-text/50 hover:text-accent transition-colors" 
             aria-label="Instagram"
           >
@@ -75,18 +81,21 @@ const TeamCard = memo(function TeamCard({
             href="https://www.linkedin.com/in/man1ikehayat?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
             target="_blank" 
             rel="noopener noreferrer" 
+            onClick={(e) => e.stopPropagation()}
             className="team-social-icon text-text/50 hover:text-accent transition-colors" 
             aria-label="LinkedIn"
           >
             <LinkedinIcon size={20} />
           </a>
-          <a href="mailto:Hayatudeen.m.bello@gmail.com" className="team-social-icon text-text/50 hover:text-accent transition-colors" aria-label="Email">
+          <a 
+            href="mailto:Hayatudeen.m.bello@gmail.com" 
+            onClick={(e) => e.stopPropagation()}
+            className="team-social-icon text-text/50 hover:text-accent transition-colors" 
+            aria-label="Email"
+          >
             <Mail size={20} />
           </a>
         </div>
-        <Link href="/about" className="mt-6 w-full block text-center rounded-lg border border-accent/20 bg-accent/5 py-3 text-xs font-bold uppercase tracking-widest text-accent hover:bg-accent hover:text-black transition-all">
-          Read the Full Story
-        </Link>
       </div>
     </div>
   );
@@ -153,11 +162,11 @@ export default function TeamSection() {
           <div ref={leftColRef} className="flex flex-col gap-12 lg:pt-10">
             
             <div className="about-block">
-              <h2 className="text-xl font-bold uppercase tracking-wide md:text-2xl text-text mb-4 flex items-center gap-4" style={{ fontFamily: "var(--font-heading)" }}>
+              <h2 className="text-2xl font-bold uppercase tracking-wide md:text-3xl text-text mb-4 flex items-center gap-4" style={{ fontFamily: "var(--font-heading)" }}>
                 <span className="w-8 h-[2px] bg-accent inline-block"></span>
                 About Unscripted Designs
               </h2>
-              <p className="text-sm text-text/70 leading-relaxed pl-8 border-l border-white/5">
+              <p className="text-text/70 leading-relaxed md:text-lg pl-12 border-l border-white/5">
                 Unscripted Designs is a digital-first creative practice at the intersection of design excellence and emerging technology. Founded on the principle that truly exceptional work happens when strategy, aesthetic precision, and innovation converge, we deliver bespoke digital solutions for brands and organizations that refuse compromise.
               </p>
             </div>
