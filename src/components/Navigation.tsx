@@ -79,18 +79,29 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
-          <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              handleLinkClick("#contact");
-            }}
-            className="hero-cta hidden lg:inline-flex"
-          >
-            <span>Start a Project</span>
-            <ArrowRight size={16} className="hero-cta-arrow" />
-          </a>
+          {/* Desktop CTA & Resume */}
+          <div className="hidden items-center gap-6 lg:flex">
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium uppercase tracking-widest text-text/60 transition-colors hover:text-accent"
+              style={{ fontFamily: "var(--font-mono)" }}
+            >
+              Resume
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                handleLinkClick("#contact");
+              }}
+              className="hero-cta"
+            >
+              <span>Start a Project</span>
+              <ArrowRight size={16} className="hero-cta-arrow" />
+            </a>
+          </div>
 
           {/* Hamburger Menu Button */}
           <button
@@ -125,6 +136,15 @@ export default function Navigation() {
             {link.label}
           </a>
         ))}
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mobile-menu-link text-accent mt-4"
+          style={{ transitionDelay: menuOpen ? `${NAV_LINKS.length * 0.1}s` : "0s" }}
+        >
+          Resume
+        </a>
       </div>
     </>
   );
