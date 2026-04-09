@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const PROFILE = {
   name: "Hayatudeen Muazu Bello",
-  title: "Product Designer (UI UX)",
+  title: "Product Designer & AI Prompt Engineer",
   location: "FCT Abuja, Nigeria",
   phone: "+2348106445799",
   email: "hayatudeen.m.bello@gmail.com",
@@ -23,6 +23,14 @@ const PROFILE = {
 };
 
 const EXPERTISE = [
+  {
+    title: "AI Automation",
+    desc: "Integrating AI-driven workflows to optimize productivity and digital solutions.",
+  },
+  {
+    title: "AI Prompt Engineering",
+    desc: "Mastering generative AI through precise prompt crafting for design and development.",
+  },
   {
     title: "UI/UX Design",
     desc: "Crafting user-friendly interfaces for web and mobile apps.",
