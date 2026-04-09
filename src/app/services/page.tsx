@@ -33,14 +33,18 @@ export default function ServicesPage() {
   const cardsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Ensure we are in a browser context
+    if (typeof window === "undefined") return;
+
     const ctx = gsap.context(() => {
       // Header Text Reveal
       gsap.from(".reveal-text", {
-        y: 100,
+        y: 40,
         opacity: 0,
-        duration: 1.2,
+        duration: 1,
         stagger: 0.1,
-        ease: "power4.out",
+        ease: "power2.out",
+        clearProps: "all", // Clear props after animation so they don't get stuck
       });
 
       // Cards Staggered Fade Up
@@ -48,11 +52,12 @@ export default function ServicesPage() {
         const cards = cardsRef.current.querySelectorAll(".service-card");
         gsap.from(cards, {
           opacity: 0,
-          y: 60,
-          duration: 1,
-          stagger: 0.15,
-          ease: "power3.out",
-          delay: 0.4,
+          y: 40,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power2.out",
+          delay: 0.2,
+          clearProps: "all",
         });
       }
     }, containerRef);
@@ -63,54 +68,54 @@ export default function ServicesPage() {
   return (
     <div 
       ref={containerRef} 
-      className="skew-section min-h-screen pt-40 pb-32 relative overflow-hidden" 
-      style={{ background: "#050505" }}
+      className="skew-section min-h-screen pt-40 pb-32 relative z-0" 
+      style={{ backgroundColor: "#050505", color: "#FFFFFF" }}
     >
       
       {/* Decorative gradient */}
-      <div className="pointer-events-none absolute top-0 -left-1/4 h-[800px] w-[800px] rounded-full bg-accent/5 blur-[200px]" />
-      <div className="pointer-events-none absolute bottom-0 -right-1/4 h-[600px] w-[600px] rounded-full bg-secondary/5 blur-[150px]" />
+      <div className="pointer-events-none absolute top-0 -left-1/4 h-[800px] w-[800px] rounded-full bg-accent/5 blur-[200px] z-[-1]" />
+      <div className="pointer-events-none absolute bottom-0 -right-1/4 h-[600px] w-[600px] rounded-full bg-secondary/5 blur-[150px] z-[-1]" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10 flex flex-col gap-16 md:gap-24">
         
         {/* Header Section */}
         <div className="mt-12 md:mt-24 max-w-4xl">
-          <p className="reveal-text mb-6 text-sm font-medium uppercase tracking-[0.3em] text-accent font-mono">
+          <p className="reveal-text mb-6 text-sm font-medium uppercase tracking-[0.3em] text-accent font-mono opacity-100">
             Our Offerings
           </p>
-          <h1 className="text-5xl font-bold leading-[1.05] tracking-tight uppercase md:text-7xl lg:text-[8rem] mb-10" style={{ fontFamily: "var(--font-display)" }}>
-            <div className="overflow-hidden h-[1.1em]"><span className="reveal-text inline-block">Premium</span></div>
-            <div className="overflow-hidden h-[1.1em]"><span className="reveal-text inline-block text-accent">Services.</span></div>
+          <h1 className="text-5xl font-bold leading-[1.05] tracking-tight uppercase md:text-7xl lg:text-[8rem] mb-10 text-white opacity-100" style={{ fontFamily: "var(--font-display)" }}>
+            <div className="overflow-hidden h-auto py-2"><span className="reveal-text inline-block">Premium</span></div>
+            <div className="overflow-hidden h-auto py-2"><span className="reveal-text inline-block text-accent">Services.</span></div>
           </h1>
           <div className="overflow-hidden max-w-2xl">
-            <p className="reveal-text text-white/80 leading-relaxed md:text-xl">
+            <p className="reveal-text text-white/80 leading-relaxed md:text-xl opacity-100" style={{ color: "rgba(255, 255, 255, 0.8)" }}>
               We deliver bespoke digital solutions for brands and organizations that refuse compromise. Every service is tailored to elevate your business and separate you from the noise.
             </p>
           </div>
         </div>
 
         {/* Services Grid */}
-        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 relative z-10">
           {SERVICES.map((service, index) => {
             const Icon = service.icon;
             return (
               <div 
                 key={index} 
-                className="service-card group relative overflow-hidden rounded-2xl bg-white/[0.03] border border-white/10 p-8 md:p-12 transition-all duration-500 hover:bg-white/[0.05] hover:border-accent/40"
+                className="service-card group relative overflow-hidden rounded-2xl bg-white/[0.05] border border-white/10 p-8 md:p-12 transition-all duration-500 hover:bg-white/[0.08] hover:border-accent/40 opacity-100"
               >
                 {/* Subtle Hover Gradient Inside Card */}
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/0 via-transparent to-transparent opacity-0 group-hover:opacity-10 transition-opacity duration-700" />
                 
                 <div className="relative z-10 flex flex-col h-full">
-                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-black border border-white/10 text-accent shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-black border border-white/20 text-accent shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
                     <Icon strokeWidth={1.5} size={32} />
                   </div>
                   
-                  <h3 className="mb-4 text-2xl font-bold text-white md:text-3xl" style={{ fontFamily: "var(--font-heading)" }}>
+                  <h3 className="mb-4 text-2xl font-bold md:text-3xl opacity-100" style={{ fontFamily: "var(--font-heading)", color: "#FFFFFF" }}>
                     {service.title}
                   </h3>
                   
-                  <p className="text-white/60 leading-relaxed text-sm md:text-base flex-grow">
+                  <p className="leading-relaxed text-sm md:text-base flex-grow opacity-100" style={{ color: "rgba(255, 255, 255, 0.7)" }}>
                     {service.description}
                   </p>
                   
@@ -123,18 +128,18 @@ export default function ServicesPage() {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-12 overflow-hidden flex flex-col items-center justify-center text-center p-12 lg:p-24 rounded-3xl border border-white/10 relative">
+        <div className="mt-12 overflow-hidden flex flex-col items-center justify-center text-center p-12 lg:p-24 rounded-3xl border border-white/10 relative bg-white/[0.02]">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-accent/5" />
-          <h2 className="reveal-text text-3xl md:text-5xl font-bold mb-6 relative z-10 text-white" style={{ fontFamily: "var(--font-heading)" }}>
+          <h2 className="reveal-text text-3xl md:text-5xl font-bold mb-6 relative z-10 text-white opacity-100" style={{ fontFamily: "var(--font-heading)" }}>
             Ready to elevate your brand?
           </h2>
-          <p className="reveal-text text-white/50 max-w-xl mx-auto mb-10 relative z-10">
+          <p className="reveal-text max-w-xl mx-auto mb-10 relative z-10 opacity-100" style={{ color: "rgba(255, 255, 255, 0.6)" }}>
             Let&apos;s collaborate to build something extraordinary. We only take on projects where we can deliver uncompromising excellence.
           </p>
           <div className="reveal-text relative z-10">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all hover:scale-105 hover:bg-secondary"
+              className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-4 text-sm font-bold uppercase tracking-widest text-black transition-all hover:scale-105 hover:bg-secondary cursor-pointer"
             >
               Start a Project
               <ArrowRight size={16} />
