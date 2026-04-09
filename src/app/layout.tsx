@@ -35,7 +35,7 @@ const clashDisplay = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "VORTEX — Creative Digital Agency",
+  title: "Unscripted Designs",
   description:
     "Award-winning creative agency crafting digital experiences that push boundaries. We blend art, technology, and storytelling.",
   keywords: [

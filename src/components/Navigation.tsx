@@ -53,7 +53,7 @@ export default function Navigation() {
             className="font-heading text-xl font-bold tracking-wider"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            VORTEX<span className="text-accent">.</span>
+            UNSCRIPTED<span className="text-accent"> DESIGNS.</span>
           </a>
 
           {/* Desktop Nav Links */}

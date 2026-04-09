@@ -29,7 +29,7 @@ const TEAM = [
   {
     name: "The Founder",
     role: "Creative Director & UI/UX Strategist",
-    bio: "Serving as Creative Director, Lead Developer, and UI/UX Strategist for the entire YMY platform.",
+    bio: "Serving as Creative Director, Lead Developer, and UI/UX Strategist for the entire Unscripted Designs platform.",
     image: "/creator.jpg",
   },
 ];

@@ -168,7 +168,7 @@ export default function Footer() {
             className="text-sm text-text/30"
             style={{ fontFamily: "var(--font-mono)" }}
           >
-            &copy; {new Date().getFullYear()} VORTEX. All rights reserved.
+            &copy; {new Date().getFullYear()} UNSCRIPTED DESIGNS. All rights reserved.
           </p>
         </div>
       </div>

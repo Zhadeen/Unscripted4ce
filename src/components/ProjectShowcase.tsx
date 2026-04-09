@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const PROJECTS = [
   {
     id: 1,
-    title: "YMY Consultancy",
+    title: "Unscripted Designs",
     description:
       "Book verified, professional tour guides worldwide. Premium guided experiences in minutes.",
     tags: ["Platform", "Tour Booking", "Premium"],
