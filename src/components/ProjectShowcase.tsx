@@ -150,8 +150,14 @@ export default function ProjectShowcase() {
       {/* Desktop: horizontal scroll track */}
       <div
         ref={trackRef}
-        className="hidden lg:flex items-end gap-10 pb-24"
-        style={{ paddingLeft: "max(2rem, calc((100vw - 80rem) / 2 + 1.5rem))", paddingRight: "2rem" }}
+        className={cn(
+          "hidden lg:flex items-end gap-10 pb-24",
+          PROJECTS.length <= 2 ? "justify-center" : "justify-start"
+        )}
+        style={{ 
+          paddingLeft: PROJECTS.length > 2 ? "max(2rem, calc((100vw - 80rem) / 2 + 1.5rem))" : "2rem", 
+          paddingRight: "2rem" 
+        }}
       >
         {PROJECTS.map((project) => (
           <ProjectCard key={project.id} project={project} />

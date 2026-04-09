@@ -3,78 +3,164 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowLeft, Download, ExternalLink } from "lucide-react";
+import { ArrowLeft, Mail, Linkedin, MapPin, Phone, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const EXPERIENCE = [
+/* ─── DATA ──────────────────────────────────────────────────────────────────── */
+
+const PROFILE = {
+  name: "Hayatudeen Muazu Bello",
+  title: "Product Designer (UI UX)",
+  location: "FCT Abuja, Nigeria",
+  phone: "+2348106445799",
+  email: "hayatudeen.m.bello@gmail.com",
+  linkedin: "https://linkedin.com/in/man1ikehayat",
+  linkedinLabel: "linkedin.com/in/man1ikehayat",
+  summary:
+    "Dynamic and analytically-driven product designer with three years of experience in user experience design, product development, and creating impactful digital solutions. Passionate about leveraging design and data to enhance user experiences and drive innovation. Proven ability to thrive in fast-paced startup environments, bringing a strong entrepreneurial mindset to every project.",
+};
+
+const EXPERTISE = [
   {
-    company: "Unscripted Designs",
-    role: "Founder & Creative Director",
-    period: "2023 - Present",
-    description: "Leading the creative vision and strategic direction for a high-end digital design agency. Specializing in immersive web experiences and brand storytelling.",
+    title: "UI/UX Design",
+    desc: "Crafting user-friendly interfaces for web and mobile apps.",
   },
   {
-    company: "YMY Consultancy",
-    role: "Lead UI/UX Strategist",
-    period: "2022 - 2023",
-    description: "Architected the user experience for a global tour guide booking platform. Focused on conversion optimization and premium aesthetic alignment.",
+    title: "Design Tools",
+    desc: "Skilled in Figma, Canva, Photoshop, Adobe XD.",
   },
   {
-    company: "Freelance Designer",
-    role: "UI/UX & Motion Designer",
-    period: "2020 - 2022",
-    description: "Collaborated with international clients to build bespoke digital products and motion graphics that drive engagement.",
+    title: "Prototyping",
+    desc: "Creating wireframes and high-fidelity mockups.",
+  },
+  {
+    title: "User Research",
+    desc: "Conducting research to enhance design usability.",
+  },
+  {
+    title: "Visual Design",
+    desc: "Delivering engaging and functional visual experiences.",
+  },
+  {
+    title: "Collaboration",
+    desc: "Partnering with teams for seamless design integration.",
+  },
+  {
+    title: "Problem Solving",
+    desc: "Turning complex ideas into effective design solutions.",
+  },
+  {
+    title: "Project Launch",
+    desc: "Driving projects that boost user engagement and retention.",
   },
 ];
 
-const SKILLS = [
-  { category: "Design", items: ["Art Direction", "UI/UX Design", "Brand Identity", "Motion Design", "Visual Storytelling"] },
-  { category: "Tech", items: ["React / Next.js", "GSAP / Framer Motion", "Tailwind CSS", "TypeScript", "Node.js"] },
-  { category: "Tools", items: ["Figma", "Adobe CC", "After Effects", "Cinema 4D", "VS Code"] },
+const EXPERIENCE = [
+  {
+    company: "Maniac Xperience",
+    location: "FCT Abuja, Nigeria",
+    role: "Product Designer",
+    period: "May 15, 2022 – Present",
+    bullets: [
+      "Launched a user-centric design overhaul that increased user engagement by 65% within the first quarter.",
+      "Collaborated with development teams to create scalable designs, reducing revision cycles by 30%.",
+      "Redesigned the platform's onboarding experience, resulting in a 45% increase in user retention.",
+      "Spearheaded user research and testing initiatives, improving design decision-making and product usability by 70%.",
+    ],
+  },
+  {
+    company: "DesignSwyft Agency",
+    location: "Glasgow Central, G3 7RH, UK",
+    role: "Product Designer",
+    period: "July 21, 2024",
+    bullets: [
+      "Conducted user research and designed UI/UX solutions for two branding projects: RapidMove Logistics and NeoHome Realty.",
+      "Created wireframes, prototypes, and mockups to visualize brand elements, ensuring an engaging and user-friendly experience.",
+      "Collaborated on developing logos, color palettes, and typography to align with the brands' professional and customer-centric vision.",
+      "Delivered design assets on time, contributing to successful branding presentations for logistics and real estate companies.",
+    ],
+  },
 ];
+
+const EDUCATION = [
+  {
+    degree: "Bachelor of Engineering in Electrical and Electronics Engineering",
+    institution: "",
+    period: "2019 – 2022",
+    note: "Graduated with Second-Class Honors.",
+  },
+];
+
+const CERTIFICATIONS = [
+  {
+    title: "Google Certification: Foundations of User Experience (UX) Design",
+    issuer: "",
+    period: "October 5, 2023",
+    bullets: [
+      "Gained hands-on experience in user research, wireframing, and prototyping.",
+      "Developed skills in creating intuitive, user-centered interfaces.",
+    ],
+    link: "https://coursera.org/verify/VHT6PD6GS4QG",
+    linkLabel: "coursera.org/verify/VHT6PD6GS4QG",
+  },
+  {
+    title: "UX Design Certification",
+    issuer: "Seed Builders Academy",
+    period: "July – October 2023",
+    bullets: [
+      "Specialized in UI/UX design principles, wireframes, and usability testing.",
+      "Completed intensive training on user-centered design principles and methodologies.",
+      "Designed and prototyped functional interfaces using Figma and Adobe XD.",
+      "Collaborated with fellow designers on real-world projects to enhance hands-on skills.",
+      "Successfully passed usability testing challenges, improving design by incorporating user feedback.",
+    ],
+  },
+];
+
+/* ─── COMPONENT ─────────────────────────────────────────────────────────────── */
 
 export default function ResumePage() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero Animation
       gsap.from(".resume-hero > *", {
-        y: 60,
+        y: 50,
         opacity: 0,
         duration: 1,
-        stagger: 0.2,
+        stagger: 0.15,
         ease: "power4.out",
       });
 
-      // Experience Animation
-      gsap.utils.toArray<HTMLElement>(".exp-item").forEach((item) => {
+      gsap.utils.toArray<HTMLElement>(".reveal-item").forEach((item) => {
         gsap.from(item, {
           scrollTrigger: {
             trigger: item,
-            start: "top 85%",
+            start: "top 88%",
             toggleActions: "play none none none",
           },
-          y: 40,
+          y: 30,
           opacity: 0,
-          duration: 0.8,
+          duration: 0.7,
           ease: "power2.out",
         });
       });
 
-      // Skills Animation
-      gsap.from(".skill-group", {
-        scrollTrigger: {
-          trigger: ".skills-section",
-          start: "top 80%",
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.15,
-        ease: "power2.out",
+      gsap.utils.toArray<HTMLElement>(".stagger-group").forEach((group) => {
+        const children = group.querySelectorAll(".stagger-child");
+        gsap.from(children, {
+          scrollTrigger: {
+            trigger: group,
+            start: "top 85%",
+          },
+          y: 20,
+          opacity: 0,
+          duration: 0.5,
+          stagger: 0.08,
+          ease: "power2.out",
+        });
       });
     }, containerRef);
 
@@ -82,77 +168,92 @@ export default function ResumePage() {
   }, []);
 
   return (
-    <div ref={containerRef} className="pb-32">
-      {/* Background Decor */}
-      <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.03]" />
-      <div className="pointer-events-none fixed left-0 top-0 h-[500px] w-[500px] rounded-full bg-accent/5 blur-[120px]" />
+    <div ref={containerRef} className="resume-page-wrapper">
+      {/* Ambient glows */}
+      <div className="resume-glow resume-glow-1" />
+      <div className="resume-glow resume-glow-2" />
 
-      <div className="relative z-10 mx-auto max-w-4xl px-6 pt-12 md:pt-24 lg:px-8">
-        
-        {/* Back Button */}
-        <Link 
-          href="/"
-          className="group mb-12 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-text/40 transition-colors hover:text-accent"
-          style={{ fontFamily: "var(--font-mono)" }}
-        >
-          <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
-          Back to Home
+      <div className="resume-container">
+        {/* ── Back Link ─────────────────────────────────────────── */}
+        <Link href="/" className="resume-back-link group">
+          <ArrowLeft size={15} className="resume-back-arrow" />
+          Back to Site
         </Link>
 
-        {/* Hero */}
-        <header className="resume-hero mb-24">
-          <p className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-accent" style={{ fontFamily: "var(--font-heading)" }}>
-            Creative Director & UI/UX Strategist
-          </p>
-          <h1 
-            className="mb-8 text-6xl font-extrabold tracking-tight md:text-8xl lg:text-9xl"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            RESUME<span className="text-accent">.</span>
-          </h1>
-          <p className="max-w-xl text-lg leading-relaxed text-text/60 md:text-xl">
-            A multidisciplinary designer and strategist specializing in crafting high-end digital experiences 
-            that bridge the gap between human intuition and technical excellence.
-          </p>
+        {/* ── HERO ──────────────────────────────────────────────── */}
+        <header className="resume-hero">
+          <div className="resume-badge">Available for New Projects</div>
+          <h1 className="resume-name">{PROFILE.name}</h1>
+          <p className="resume-title">{PROFILE.title}</p>
+
+          <div className="resume-contact-row">
+            <span className="resume-contact-item">
+              <MapPin size={13} />
+              {PROFILE.location}
+            </span>
+            <span className="resume-divider" />
+            <a href={`tel:${PROFILE.phone}`} className="resume-contact-item resume-contact-link">
+              <Phone size={13} />
+              {PROFILE.phone}
+            </a>
+            <span className="resume-divider" />
+            <a href={`mailto:${PROFILE.email}`} className="resume-contact-item resume-contact-link">
+              <Mail size={13} />
+              {PROFILE.email}
+            </a>
+            <span className="resume-divider" />
+            <a
+              href={PROFILE.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="resume-contact-item resume-contact-link"
+            >
+              <Linkedin size={13} />
+              {PROFILE.linkedinLabel}
+            </a>
+          </div>
+
+          <p className="resume-summary">{PROFILE.summary}</p>
         </header>
 
-        {/* Experience Section */}
-        <section className="mb-32">
-          <h2 
-            className="mb-12 text-sm font-bold uppercase tracking-[0.4em] text-text/30"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            Experience
-          </h2>
-          <div className="space-y-16">
-            {EXPERIENCE.map((exp, i) => (
-              <div key={i} className="exp-item relative pl-8 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-accent/40">
-                <div className="flex flex-col justify-between gap-2 md:flex-row md:items-baseline">
-                  <h3 className="text-2xl font-bold text-text" style={{ fontFamily: "var(--font-heading)" }}>{exp.role}</h3>
-                  <span className="text-xs font-bold uppercase tracking-widest text-accent" style={{ fontFamily: "var(--font-mono)" }}>{exp.period}</span>
+        {/* ── EXPERTISE ─────────────────────────────────────────── */}
+        <section className="resume-section reveal-item">
+          <h2 className="resume-section-label">Areas of Expertise</h2>
+          <div className="expertise-grid stagger-group">
+            {EXPERTISE.map((ex, i) => (
+              <div key={i} className="expertise-card stagger-child">
+                <span className="expertise-dot" />
+                <div>
+                  <p className="expertise-title">{ex.title}</p>
+                  <p className="expertise-desc">{ex.desc}</p>
                 </div>
-                <p className="mt-1 text-sm font-medium uppercase tracking-wider text-text/40" style={{ fontFamily: "var(--font-body)" }}>{exp.company}</p>
-                <p className="mt-6 max-w-2xl text-base leading-relaxed text-text/60">{exp.description}</p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Skills Section */}
-        <section className="skills-section mb-32">
-          <h2 
-            className="mb-12 text-sm font-bold uppercase tracking-[0.4em] text-text/30"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            Expertise
-          </h2>
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
-            {SKILLS.map((group, i) => (
-              <div key={i} className="skill-group p-8 border border-white/5 rounded-2xl bg-white/[0.02]">
-                <h3 className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-accent" style={{ fontFamily: "var(--font-mono)" }}>{group.category}</h3>
-                <ul className="space-y-3">
-                  {group.items.map((skill, si) => (
-                    <li key={si} className="text-base text-text/60">{skill}</li>
+        {/* ── EXPERIENCE ────────────────────────────────────────── */}
+        <section className="resume-section reveal-item">
+          <h2 className="resume-section-label">Professional Experience</h2>
+          <div className="exp-list">
+            {EXPERIENCE.map((exp, i) => (
+              <div key={i} className="exp-block stagger-group">
+                <div className="exp-header">
+                  <div className="exp-header-left">
+                    <h3 className="exp-company">{exp.company}</h3>
+                    <span className="exp-location">{exp.location}</span>
+                  </div>
+                  <div className="exp-header-right">
+                    <span className="exp-role">{exp.role}</span>
+                    <span className="exp-period">{exp.period}</span>
+                  </div>
+                </div>
+                <ul className="exp-bullets">
+                  {exp.bullets.map((b, bi) => (
+                    <li key={bi} className="exp-bullet stagger-child">
+                      <span className="bullet-marker" />
+                      {b}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -160,25 +261,63 @@ export default function ResumePage() {
           </div>
         </section>
 
-        {/* Footer Actions */}
-        <footer className="flex flex-wrap items-center gap-8 border-t border-white/5 pt-12">
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            className="group flex items-center gap-3 text-lg font-bold"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            <span className="border-b-[2px] border-accent transition-all group-hover:pr-4">Download PDF</span>
-            <Download size={20} className="text-accent transition-transform group-hover:translate-y-1" />
-          </a>
-          
-          <a
-            href="mailto:Hayatudeen.m.bello@gmail.com"
-            className="group flex items-center gap-3 text-lg font-bold"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            <span className="border-b-[2px] border-transparent transition-all group-hover:border-accent">Get in Touch</span>
-            <ExternalLink size={20} className="text-text/30 transition-all group-hover:text-accent group-hover:translate-x-1 group-hover:-translate-y-1" />
+        {/* ── EDUCATION ─────────────────────────────────────────── */}
+        <section className="resume-section reveal-item">
+          <h2 className="resume-section-label">Education</h2>
+          {EDUCATION.map((edu, i) => (
+            <div key={i} className="edu-block">
+              <div className="edu-header">
+                <p className="edu-degree">{edu.degree}</p>
+                <span className="edu-period">{edu.period}</span>
+              </div>
+              {edu.note && <p className="edu-note">{edu.note}</p>}
+            </div>
+          ))}
+        </section>
+
+        {/* ── CERTIFICATIONS ────────────────────────────────────── */}
+        <section className="resume-section reveal-item">
+          <h2 className="resume-section-label">Additional Skills &amp; Certifications</h2>
+          <div className="cert-list stagger-group">
+            {CERTIFICATIONS.map((cert, i) => (
+              <div key={i} className="cert-block stagger-child">
+                <div className="cert-header">
+                  <div>
+                    <p className="cert-title">{cert.title}</p>
+                    {cert.issuer && <p className="cert-issuer">{cert.issuer}</p>}
+                  </div>
+                  <span className="cert-period">{cert.period}</span>
+                </div>
+                <ul className="cert-bullets">
+                  {cert.bullets.map((b, bi) => (
+                    <li key={bi} className="cert-bullet">
+                      <span className="bullet-marker" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                {cert.link && (
+                  <a
+                    href={cert.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cert-link"
+                  >
+                    <ExternalLink size={12} />
+                    {cert.linkLabel}
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── FOOTER CTA ────────────────────────────────────────── */}
+        <footer className="resume-footer reveal-item">
+          <p className="resume-footer-label">Let's create something extraordinary.</p>
+          <a href={`mailto:${PROFILE.email}`} className="resume-footer-cta">
+            <Mail size={16} />
+            {PROFILE.email}
           </a>
         </footer>
       </div>

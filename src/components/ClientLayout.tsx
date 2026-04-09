@@ -16,9 +16,11 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     setLoaded(true);
   }, []);
 
-  // Optionally reset scroll on route change if needed, 
-  // though Lenis usually handles this.
-  
+  // Reset scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <>
       {!loaded && <Preloader onComplete={handlePreloaderComplete} />}

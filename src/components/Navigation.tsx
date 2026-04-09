@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -18,6 +19,8 @@ export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("#hero");
   const navRef = useRef<HTMLElement>(null);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,10 +31,19 @@ export default function Navigation() {
   }, []);
 
   const handleLinkClick = (href: string) => {
-    setActiveLink(href);
     setMenuOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+
+    if (pathname !== "/") {
+      router.push("/" + href);
+      return;
+    }
+
+    setActiveLink(href);
+    const id = href.replace("#", "");
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -45,20 +57,21 @@ export default function Navigation() {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
           {/* Logo */}
-          <a
-            href="#hero"
+          <Link
+            href="/"
             onClick={(e) => {
-              e.preventDefault();
-              handleLinkClick("#hero");
+              if (pathname === "/") {
+                e.preventDefault();
+                handleLinkClick("#hero");
+              }
             }}
             className="font-heading text-xl font-bold tracking-wider"
-            style={{ fontFamily: "var(--font-heading)" }}
           >
             <div className="flex flex-col leading-tight">
               <span>UNSCRiPTED</span>
               <span className="text-xs tracking-[0.4em] text-accent/80 md:text-sm">DESiGNS.</span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Nav Links */}
           <div className="hidden items-center gap-8 lg:flex">
@@ -72,7 +85,7 @@ export default function Navigation() {
                 }}
                 className={cn(
                   "nav-link",
-                  activeLink === link.href && "active"
+                  pathname === "/" && activeLink === link.href && "active"
                 )}
               >
                 {link.label}
@@ -84,8 +97,10 @@ export default function Navigation() {
           <div className="hidden items-center gap-6 lg:flex">
             <Link
               href="/resume"
-              className="text-sm font-medium uppercase tracking-widest text-text/60 transition-colors hover:text-accent"
-              style={{ fontFamily: "var(--font-mono)" }}
+              className={cn(
+                "text-sm font-medium uppercase tracking-widest transition-colors hover:text-accent font-mono",
+                pathname === "/resume" ? "text-accent" : "text-text/60"
+              )}
             >
               Resume
             </Link>
@@ -138,7 +153,10 @@ export default function Navigation() {
         <Link
           href="/resume"
           onClick={() => setMenuOpen(false)}
-          className="mobile-menu-link text-accent mt-4"
+          className={cn(
+            "mobile-menu-link mt-4",
+            pathname === "/resume" ? "text-accent" : "text-text"
+          )}
           style={{ transitionDelay: menuOpen ? `${NAV_LINKS.length * 0.1}s` : "0s" }}
         >
           Resume
