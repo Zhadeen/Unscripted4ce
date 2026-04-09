@@ -149,47 +149,47 @@ export default function TeamSection() {
           <div ref={leftColRef} className="flex flex-col gap-12">
             
             <div className="about-block">
-              <h2 className="text-2xl font-bold uppercase tracking-wide md:text-3xl text-text mb-4 flex items-center gap-4" style={{ fontFamily: "var(--font-heading)" }}>
+              <h2 className="text-xl font-bold uppercase tracking-wide md:text-2xl text-text mb-4 flex items-center gap-4" style={{ fontFamily: "var(--font-heading)" }}>
                 <span className="w-8 h-[2px] bg-accent inline-block"></span>
                 About Unscripted Designs
               </h2>
-              <p className="text-text/70 leading-relaxed md:text-lg pl-12 border-l border-white/5">
+              <p className="text-sm text-text/70 leading-relaxed pl-8 border-l border-white/5">
                 Unscripted Designs is a digital-first creative practice at the intersection of design excellence and emerging technology. Founded on the principle that truly exceptional work happens when strategy, aesthetic precision, and innovation converge, we deliver bespoke digital solutions for brands and organizations that refuse compromise.
               </p>
             </div>
 
             <div className="about-block">
-              <h2 className="text-xl font-bold uppercase tracking-wide md:text-2xl text-text mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+              <h2 className="text-lg font-bold uppercase tracking-wide md:text-xl text-text mb-4" style={{ fontFamily: "var(--font-heading)" }}>
                 What We Do
               </h2>
-              <p className="text-text/70 leading-relaxed md:text-lg">
+              <p className="text-sm text-text/70 leading-relaxed">
                 We specialize in Product Design & Brand Strategy, UI/UX Design, Web Design, and AI-driven Automation & Prompt Engineering. Our work spans digital products, brand identities, and custom web experiences, each crafted with meticulous attention to detail and a deep understanding of how design influences user behavior and business outcomes.
               </p>
             </div>
 
             <div className="about-block">
-              <h2 className="text-xl font-bold uppercase tracking-wide md:text-2xl text-text mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+              <h2 className="text-lg font-bold uppercase tracking-wide md:text-xl text-text mb-4" style={{ fontFamily: "var(--font-heading)" }}>
                 Our Approach
               </h2>
-              <p className="text-text/70 leading-relaxed md:text-lg">
+              <p className="text-sm text-text/70 leading-relaxed">
                 Our methodology is unscripted. Rather than applying templates or formulaic processes, we approach each project with fresh eyes and rigorous thinking. We believe that premium design is born from understanding—understanding your audience, your competitive landscape, your brand&apos;s unique voice, and the role design plays in your broader business strategy. Every project is bespoke. Every decision is intentional.
               </p>
             </div>
 
             <div className="about-block">
-              <h2 className="text-xl font-bold uppercase tracking-wide md:text-2xl text-text mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+              <h2 className="text-lg font-bold uppercase tracking-wide md:text-xl text-text mb-4" style={{ fontFamily: "var(--font-heading)" }}>
                 Who We Work With
               </h2>
-              <p className="text-text/70 leading-relaxed md:text-lg">
+              <p className="text-sm text-text/70 leading-relaxed">
                 We partner with forward-thinking founders, innovative consultancies, and organizations that recognize design as a competitive advantage, not an afterthought. Our ideal clients are those who understand that excellence has a cost, and that cost is worth paying.
               </p>
             </div>
 
             <div className="about-block">
-              <h2 className="text-xl font-bold uppercase tracking-wide md:text-2xl text-text mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+              <h2 className="text-lg font-bold uppercase tracking-wide md:text-xl text-text mb-4" style={{ fontFamily: "var(--font-heading)" }}>
                 The Platform
               </h2>
-              <p className="text-text/70 leading-relaxed md:text-lg">
+              <p className="text-sm text-text/70 leading-relaxed">
                 This very platform is a reflection of our work. Built with cutting-edge technologies and animated with precision, it serves as both our creative showcase and our living resume—a demonstration that we practice what we preach. It&apos;s our digital business card, and it speaks volumes before a single conversation begins.
               </p>
             </div>
