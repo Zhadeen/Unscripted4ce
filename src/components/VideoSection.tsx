@@ -75,7 +75,7 @@ export default function VideoSection() {
           How We Work
         </p>
         <h2
-          className="mb-6 text-4xl font-bold md:text-6xl lg:text-7xl"
+          className="mb-8 text-3xl font-black md:text-5xl lg:text-7xl xl:text-8xl tracking-tight leading-[0.95]"
           style={{ fontFamily: "var(--font-display)" }}
           data-cursor="text"
         >

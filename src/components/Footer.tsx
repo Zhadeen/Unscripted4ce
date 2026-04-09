@@ -121,19 +121,19 @@ export default function Footer() {
     <footer className="border-t border-white/5 bg-[#050505]">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
         {/* Top: columns + newsletter */}
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
           {FOOTER_COLUMNS.map((col) => (
-            <div key={col.title}>
+            <div key={col.title} className="text-center sm:text-left">
               <h4
-                className="mb-4 text-sm font-bold uppercase tracking-widest text-text"
+                className="mb-4 text-xs font-black uppercase tracking-[0.2em] text-text"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 {col.title}
               </h4>
-              <ul className="flex flex-col gap-3">
+              <ul className="flex flex-col gap-2">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} className="footer-link">
+                    <a href={link.href} className="footer-link text-xs">
                       {link.label}
                     </a>
                   </li>
@@ -143,28 +143,28 @@ export default function Footer() {
           ))}
 
           {/* Newsletter */}
-          <div>
+          <div className="text-center sm:text-left">
             <h4
-              className="mb-4 text-sm font-bold uppercase tracking-widest text-text"
+              className="mb-4 text-xs font-black uppercase tracking-[0.2em] text-text"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               Newsletter
             </h4>
-            <p className="mb-4 text-sm text-text/50">
+            <p className="mb-4 text-xs text-text/50 max-w-[240px] mx-auto sm:mx-0">
               Stay updated with our latest projects and insights.
             </p>
             <form
-              className="flex gap-2"
+              className="flex gap-2 justify-center sm:justify-start"
               onSubmit={(e) => e.preventDefault()}
             >
               <input
                 type="email"
                 placeholder="your@email.com"
-                className="newsletter-input"
+                className="newsletter-input max-w-[200px]"
                 aria-label="Email address"
               />
               <button type="submit" className="newsletter-btn" aria-label="Subscribe">
-                <ArrowRight size={16} />
+                <ArrowRight size={14} />
               </button>
             </form>
           </div>
@@ -185,10 +185,10 @@ export default function Footer() {
             className="text-sm text-text/30"
             style={{ fontFamily: "var(--font-mono)" }}
           >
-            <div className="flex flex-col items-center md:items-start leading-tight">
-              <span className="font-heading font-bold text-text uppercase">UNSCRiPTED</span>
-              <span className="text-[10px] tracking-[0.3em] text-accent uppercase font-bold">DESiGNS.</span>
-              <span className="mt-2 text-[10px] text-text/30 font-mono tracking-normal">
+            <div className="flex flex-col items-center md:items-start leading-none">
+              <span className="font-heading font-black text-lg text-text uppercase tracking-tight">UNSCRiPTED</span>
+              <span className="text-[9px] tracking-[0.3em] text-accent uppercase font-black">DESiGNS.</span>
+              <span className="mt-4 text-[9px] text-text/30 font-mono tracking-normal uppercase font-bold">
                 &copy; {new Date().getFullYear()} ALL RIGHTS RESERVED.
               </span>
             </div>

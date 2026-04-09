@@ -72,9 +72,9 @@ export default function Navigation() {
             }}
             className="font-heading text-xl font-bold tracking-wider"
           >
-            <div className="flex flex-col leading-tight">
-              <span>UNSCRiPTED</span>
-              <span className="text-xs tracking-[0.4em] text-accent/80 md:text-sm">DESiGNS.</span>
+            <div className="flex flex-col leading-none">
+              <span className="text-lg font-black tracking-tight md:text-xl">UNSCRiPTED</span>
+              <span className="text-[9px] font-bold tracking-[0.3em] text-accent/90 md:text-[10px]">DESiGNS.</span>
             </div>
           </Link>
 
@@ -146,7 +146,7 @@ export default function Navigation() {
               e.preventDefault();
               handleLinkClick(link.href);
             }}
-            className="mobile-menu-link"
+            className="mobile-menu-link text-3xl font-black uppercase tracking-tight"
             style={{ transitionDelay: menuOpen ? `${i * 0.1}s` : "0s" }}
           >
             {link.label}

@@ -113,7 +113,7 @@ export default function Hero() {
 
         <p
           ref={subtitleRef}
-          className="mb-12 max-w-2xl text-center text-lg leading-relaxed text-text/60 md:text-xl"
+          className="mb-12 max-w-xl text-center text-base leading-relaxed text-text/60 md:text-xl lg:text-lg xl:text-xl"
           style={{ fontFamily: "var(--font-body)" }}
         >
           UNSCRiPTED. Unfiltered. Unmatched. We specialize in building immersive
