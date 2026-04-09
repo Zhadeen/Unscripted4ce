@@ -19,7 +19,7 @@ const PROFILE = {
   linkedin: "https://linkedin.com/in/man1ikehayat",
   linkedinLabel: "linkedin.com/in/man1ikehayat",
   summary:
-    "Dynamic and analytically-driven product designer with three years of experience in user experience design, product development, and creating impactful digital solutions. Passionate about leveraging design and data to enhance user experiences and drive innovation. Proven ability to thrive in fast-paced startup environments, bringing a strong entrepreneurial mindset to every project.",
+    "Dynamic and analytically-driven product designer and AI prompt engineer with three years of experience in user experience design, product development, and creating impactful digital solutions. Passionate about leveraging design, data, and artificial intelligence to enhance user experiences and drive innovation. Skilled in crafting precise AI prompts to streamline workflows, accelerate prototyping, and unlock intelligent design solutions. Proven ability to thrive in fast-paced startup environments, bringing a strong entrepreneurial mindset to every project.",
 };
 
 const EXPERTISE = [
